@@ -12,29 +12,69 @@ import com.example.rideshare.trip.Trip;
 import com.example.rideshare.user.MembershipTier;
 import com.example.rideshare.user.User;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        User alice = new User("Alice", MembershipTier.STANDARD, new Money(100.0));
-        Car car = new Car("Toyota Corolla", 5);
-        EBike ebike = new EBike("E-Bike X", 500);
-        Scooter scooter = new Scooter("Scoot-2000", 25);
+        Scanner input = new Scanner(System.in);
 
+        // User
+        System.out.print("Enter user name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter balance: ");
+        double balance = input.nextDouble();
+        input.nextLine();
+        User u1 = new User(name, MembershipTier.STANDARD, new Money(balance));
+
+        // Car
+        System.out.print("Enter car model: ");
+        String carModel = input.nextLine();
+
+        System.out.print("Enter seat count: ");
+        int seatCount = input.nextInt();
+        input.nextLine();
+
+
+        Car car = new Car(carModel, seatCount);
+
+        // EBike
+        System.out.print("Enter EBikeModle: ");
+        String ebikeModle = input.nextLine();
+
+        System.out.print("Enter batteryCapacity: ");
+        int batteryCapacity = input.nextInt();
+        input.nextLine();
+
+        EBike ebike = new EBike(ebikeModle,batteryCapacity);
+
+        // Scooter
+        System.out.print("Enter scooter model: ");
+        String scootModel = input.nextLine();
+
+        System.out.print("Enter max speed (km/h): ");
+        int maxSpeed = input.nextInt();
+
+        Scooter scooter = new Scooter(scootModel, maxSpeed);
+        //Output
+        System.out.println("/nUser : "+u1);
         System.out.println("Vehicles:");
         System.out.println(car);
         System.out.println(ebike);
         System.out.println(scooter);
-
+        System.out.println("_________");
+        //  Determine PricingStrategy  calculate(Strategy Pattern)
         var pricing = new HybridPricing(0.2 /* per minute */, 0.5 /* per km */);
         var timePricing = new TimeBasedPricing(0.3);
         var distPricing = new DistanceBasedPricing(1.2);
         var surge = new SurgeDecorator(timePricing, 1.5);
 
-        Trip trip = new Trip(alice, ebike, pricing);
+        Trip trip = new Trip(u1, ebike, pricing);
         trip.start();
         try { Thread.sleep(1500); } catch (InterruptedException ignored) {}
         trip.end(0.8);
 
         System.out.println("Trip completed: " + trip);
-        System.out.println("User after trip: " + alice);
+        System.out.println("User after trip: " + u1);
     }
 }

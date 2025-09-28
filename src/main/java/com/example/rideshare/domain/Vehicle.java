@@ -43,6 +43,6 @@ public abstract class Vehicle {
 
     @Override
     public String toString() {
-        return vehicleType() + "{id=" + id + ", model=" + model + ", state=" + state + "}";
+        return vehicleType() + " {  id = " + id + ", model = " + model + ", state = " + state + " }";
     }
 }

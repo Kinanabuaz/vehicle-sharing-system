@@ -65,7 +65,7 @@ public class Trip {
 
     @Override
     public String toString() {
-        return "Trip{" + id + ", user=" + user.getName() + ", vehicle=" + vehicle.getModel() +
-               ", state=" + state + ", price=" + price + "}";
+        return "Trip { " + id + ", user = " + user.getName() + ", vehicle = " + vehicle.getModel() +
+               ", state = " + state + ", price = " + price + "}";
     }
 }

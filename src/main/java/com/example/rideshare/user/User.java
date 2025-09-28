@@ -30,6 +30,9 @@ public class User {
 
     public synchronized void charge(Money amount) {
         if (amount == null) throw new IllegalArgumentException("amount null");
+        if (amount.isNegative() || amount.compareTo(Money.ZERO) == 0) {
+            throw new IllegalArgumentException("amount must be > 0");
+        }
         if (balance.compareTo(amount) < 0) {
             throw new IllegalStateException("Insufficient balance. Current: " + balance + ", required: " + amount);
         }
@@ -45,6 +48,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + name + ", tier=" + tier + ", balance=" + balance + "}";
+        return "User { " + name + ", tier = " + tier + ", balance = " + balance + " }";
     }
 }

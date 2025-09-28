@@ -11,6 +11,7 @@ public final class Car extends Vehicle {
 
     public int getSeatCount() { return seatCount; }
 
-    @Override
-    public String vehicleType() { return "Car"; }
+    public String vehicleType() {
+        return "Car"; }
+
 }

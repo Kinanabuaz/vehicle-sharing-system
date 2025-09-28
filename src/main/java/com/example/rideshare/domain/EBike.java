@@ -1,8 +1,8 @@
 package com.example.rideshare.domain;
 
 public final class EBike extends Vehicle {
-    private final int batteryCapacityWh;
-    private int currentBatteryWh;
+    private final int batteryCapacityWh;     //سعة البطارية بالواط/ساعة
+    private int currentBatteryWh;   // البطارية الحالية بالساعة
 
     public EBike(String model, int batteryCapacityWh) {
         super(model);
