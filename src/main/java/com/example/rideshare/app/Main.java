@@ -62,7 +62,6 @@ public class Main {
         System.out.println(car);
         System.out.println(ebike);
         System.out.println(scooter);
-        System.out.println("_________");
         //  Determine PricingStrategy  calculate(Strategy Pattern)
         var pricing = new HybridPricing(0.2 /* per minute */, 0.5 /* per km */);
         var timePricing = new TimeBasedPricing(0.3);
