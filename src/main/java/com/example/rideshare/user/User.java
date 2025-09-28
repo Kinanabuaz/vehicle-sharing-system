@@ -48,6 +48,11 @@ public class User {
 
     @Override
     public String toString() {
-        return "User { " + name + ", tier = " + tier + ", balance = " + balance + " }";
+        return "User { " +
+                "id = " + id +
+                ", name = '" + name + '\'' +
+                ", tier = " + tier +
+                ", balance = " + balance +
+                '}';
     }
 }
